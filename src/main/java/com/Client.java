@@ -10,15 +10,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+/** Represents the object that sends and recieves the GET requests to get weatherh data. */
 public class Client {
-    /**
-     * Creates the client to send and recieve the requests
-     */
+    /** Creates the client to send and receive the requests */
     private HttpClient client = HttpClient.newHttpClient();
 
-    /**
-     * The api key for openweathermap.org
-     */
+    /** The api key for openweathermap.org */
     private String apiKey = "fc6ba67fa7afd9770cc11af85e00dcaa";
 
     /**
@@ -42,6 +39,12 @@ public class Client {
         }
     }
 
+    /**
+     * Parses the json received from the client into a city object, specifically the temperature
+     * and weather condition (main).
+     * @param json raw json string from client.
+     * @return a city object filled with data parsed from the string.
+     */
     private City parseJson(String json){
         JsonObject parsed = JsonParser.parseString(json).getAsJsonObject();
         JsonObject main = parsed.getAsJsonObject("main");
