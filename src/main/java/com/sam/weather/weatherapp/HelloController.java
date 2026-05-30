@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.net.http.HttpClient;
+
 public class HelloController {
 
     String apiKey;
@@ -31,4 +33,6 @@ public class HelloController {
         String city = cityTextBox.getText();
         cityTextBox.setText("Searching...");
     }
+
+
 }
